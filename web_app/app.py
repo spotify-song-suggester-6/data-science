@@ -16,7 +16,8 @@ app = Flask(__name__)
 
 def create_app():
     app = Flask(__name__)
-    DB_URL = 'postgresql+psycopg2://{user}:{pw}@{url}/{dbname}'.format(user=user,pw=pw,url=url,dbname=dbname)
+    DB_URL = 'postgresql+psycopg2://{user}:{pw}@{url}/{dbname}'.format(user=user,
+        pw=pw,url=url,dbname=dbname)
 
     app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # silence the deprecation warning
