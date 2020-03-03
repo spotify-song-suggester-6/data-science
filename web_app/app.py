@@ -1,3 +1,4 @@
+# pylint: disable=import-error
 import os
 from flask import Flask, jsonify, request
 from dotenv import load_dotenv
@@ -12,9 +13,10 @@ url=os.getenv("POSTGRES_URL")
 dbname=os.getenv("POSTGRES_DB")
 app = Flask(__name__)
 
+
 def create_app():
     app = Flask(__name__)
-    DB_URL = 'postgresql+psycopg2://{user}:{pw}@{url}/{db}'.format(user=user,pw=pw,url=url,db=dbname)
+    DB_URL = 'postgresql+psycopg2://{user}:{pw}@{url}/{dbname}'.format(user=user,pw=pw,url=url,dbname=dbname)
 
     app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # silence the deprecation warning
