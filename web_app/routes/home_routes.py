@@ -1,5 +1,5 @@
 # pylint: disable=import-error
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, render_template
 import os
 from sqlalchemy_utils import database_exists
 import psycopg2
@@ -90,3 +90,12 @@ def run_scatter():
 #     # TEST
 #     Q_topTen = """SELECT TOP 10 FROM Song;"""
 #     print(curs.execute(Q_topTen).fetchall())
+
+@home_route.route('/test_predict')
+def test_form():
+    return render_template('test_form.html')
+
+@home_route.route('/test_predict', methods=['POST'])
+def test_form_post():
+     test_text = request.form["text"]
+     return jsonify({'prediction': test_text})
