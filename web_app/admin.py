@@ -23,7 +23,7 @@ def load_environment_variables():
 
 #how to pass arguments as a tuple
 #TODO: import this function and use it where authentication is used
-# throughout the
+# throughout the package
 
 def check_db():
     """Check if there are songs in Postgres DB"""

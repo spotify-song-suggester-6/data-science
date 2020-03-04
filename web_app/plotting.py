@@ -62,7 +62,8 @@ def jsfy(df, songID):
         'liveness',
         'speechiness']
     find_id = df['track_id'] == songID
-    song_stats = df[features][find_id]
+    song_stats = df[find_id][features]
+    print(song_stats)
     start = """{"data": [{"x":"""
     xs = list(song_stats.columns)
     middle = """, "y": """
