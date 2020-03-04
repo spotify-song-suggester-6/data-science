@@ -12,7 +12,14 @@ home_route = Blueprint("home_route", __name__)
 
 @home_route.route("/")
 def index():
-    return "Hello World"
+    return jsonify({
+  "id": "1a8b8863-a859-4d68-b63a-c466e554fd13",
+  "name": "Ada Lovelace",
+  "email": "ada@geemail.com",
+  "bio": "First programmer. No big deal.",
+  "age": 198,
+  "avatar": "http://en.wikipedia.org/wiki/File:Ada_lovelace.jpg"
+})
 
 @home_route.route("/test_db")
 def check_for_db():

@@ -18,6 +18,9 @@ seaborn = "*"
 matplotlib = "*"
 plotly = "*"
 statsmodels = "*"
+sklearn = "*"
+category-encoders = "*"
+pyreadstat = "*"
 
 [requires]
 python_version = "3.7"
