@@ -41,7 +41,7 @@ def run_scatter():
     music_data = load_from_db()
     print(music_data.head())
     scatter = basic_scatter(music_data)
-    return jsonify(scatter)
+    return "Beautiful Plot"
 
 #export = suggestSong(parseInput())
 
@@ -63,12 +63,12 @@ def run_scatter():
 #     # if database_exists(DB_URL):
 #     con = psycopg2.connect(database = dbname, user=user, password=pw, host=url)
 #     cur = con.cursor()
-#     #Q_drop_if_exists = """DROP TABLE IF EXISTS Song"""
+#     #Q_drop_if_exists = """DROP TABLE IF EXISTS song_database"""
 #     #Q_create_table = """"""
 #     rows = df19.values.tolist()
 #     def build_insert_query(row):
 #         Q_insert_colOrder = """
-#                             INSERT INTO Song (
+#                             INSERT INTO song_database (
 #                             track_id, artist_name, track_name, acousticness,
 #                             danceability, energy, instrumentalness, liveness,
 #                             loudness, speechiness, tempo, valence, duration_ms,

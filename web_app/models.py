@@ -1,4 +1,7 @@
-# pylint: disable=import-error
+"""This module constructs the classes that SQLAlchemy uses to interact with
+the Spotify database.
+"""
+#pylint: disable=import-error
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
