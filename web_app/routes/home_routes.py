@@ -57,7 +57,7 @@ def check_for_db():
         cur.close()
         connection.close()
         print("PostgreSQL connection is closed")
-    return("fortyseven")
+    return("You have successfully connected to PostgreSQL.")
 
 @home_route.route("/plot")
 def run_scatter():
