@@ -19,7 +19,7 @@ input needs to NOT have columns: "track_id",
 
 import joblib
 
-FILENAME = 'model-v1.sav'
+FILENAME = 'web_app/model-v1.sav'
 
 
 def kayDeeSuggestsThis(FILENAME, songInputVarGoesHere, df):

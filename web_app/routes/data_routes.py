@@ -2,9 +2,11 @@
 # pylint: disable=import-error
 import os
 import psycopg2
+import pandas as pd
 from flask import Blueprint, jsonify, request, render_template
 from sqlalchemy_utils import database_exists
 from dotenv import load_dotenv
+from web_app.load_model import kayDeeSuggestsThis, FILENAME
 from web_app.plotting import basic_scatter, jsfy
 from web_app.admin import check_db, load_environment_variables, load_from_db
 
@@ -25,13 +27,19 @@ def plot_to_json():
 
 @data_route.route('/model')
 def get_data():
-    pass
+    return render_template('test_form.html')
 
 @data_route.route('/model', methods=['POST'])
-def model_data(song):
-    # use song input to grab features
-    # convert features to 2d array
-    # drop unnecessary columns
-    # run model
-    # return jsonified output
-    pass
+def model_data():
+    song_name = request.form['text']
+    music_data = load_from_db()
+    features = music_data.columns.drop(["id", "track_id", "track_name",
+        "artist_name", "duration_ms"])
+    find_id = music_data['track_name'] == song_name
+    song_stats = music_data[find_id][features]
+    print(song_stats.shape)
+    print(song_stats)
+#    song_array = np.array(song_stats)
+    rec_songs = kayDeeSuggestsThis(FILENAME, song_stats, music_data)
+    songs_json = rec_songs.to_json()
+    return songs_json
