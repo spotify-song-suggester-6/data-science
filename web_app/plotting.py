@@ -28,13 +28,16 @@ def jsfy(df, songID):
         'instrumentalness',
         'liveness',
         'speechiness']
+
     find_id = df['track_id'] == songID
     song_stats = df[find_id][features]
     print(song_stats)
+
     start = """{"data": [{"x":"""
     xs = list(song_stats.columns)
     middle = """, "y": """
     ys = list(song_stats.values[0])
     end = """, "type": "bar"}]}"""
     json = start + str(xs) + middle + str(ys) + end
+
     return json
