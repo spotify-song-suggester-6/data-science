@@ -6,7 +6,6 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-tensorflow = "2.1.0"
 numpy = "*"
 joblib = "*"
 pandas = "*"
