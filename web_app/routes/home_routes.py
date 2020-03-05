@@ -69,7 +69,7 @@ def run_scatter():
 @home_route.route("/data_exists")
 def db_check():
     check_db()
-    return("Squery executed successfuly")
+    return("Query executed successfully. Data should be present.")
 
 # return APP.response_class(
 #            response= json.dumps( export),
