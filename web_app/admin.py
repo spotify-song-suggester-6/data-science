@@ -20,10 +20,6 @@ def load_environment_variables():
 
     return(db_user, db_pw, db_url, db_name)
 
-#how to pass arguments as a tuple
-#TODO: import this function and use it where authentication is used
-# throughout the package
-
 
 def load_from_db():
     """This function loads and minimally processes the Spotify data.
@@ -99,6 +95,7 @@ def populate_db():
 
     First reads data from a local source into a data frame. Then creates an
     SQL-Alchemy connection engine and connects it to the database.
+
     It writes the dataframe to a tab-delimited file (Postgres was having
     formatting trouble reading song names with multiple commas within csvs),
     then writes that whole object into the database. Finally, it returns a
