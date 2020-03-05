@@ -111,4 +111,4 @@ venv.bak/
 
 exploratory.ipynb
 untitled.ipynb
-
+.ipynb_checkpoints/*

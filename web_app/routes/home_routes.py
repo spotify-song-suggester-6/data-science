@@ -1,14 +1,18 @@
+"""This module contains the routes for the flask app."""
+#TODO: create another routes file
 # pylint: disable=import-error
 from flask import Blueprint, jsonify, request, render_template
 import os
 from sqlalchemy_utils import database_exists
 import psycopg2
 from dotenv import load_dotenv
-from web_app.plotting import load_from_db, basic_scatter, jsfy
-from web_app.admin import check_db, load_environment_variables
+from web_app.plotting import basic_scatter, jsfy
+from web_app.admin import check_db, load_environment_variables, load_from_db
 load_dotenv()
 
+
 home_route = Blueprint("home_route", __name__)
+
 
 @home_route.route("/")
 def index():
@@ -23,6 +27,8 @@ def index():
 
 @home_route.route("/plotly")
 def get_song_id():
+    """Receives text from user using an HTML template. Must receive valid song id."""
+
     return render_template('test_form.html')
 
 @home_route.route('/plotly', methods=['POST'])
@@ -65,15 +71,11 @@ def db_check():
     check_db()
     return("Squery executed successfuly")
 
-#export = suggestSong(parseInput())
-
 # return APP.response_class(
 #            response= json.dumps( export),
 #            status= 200,
 #            mimetype= 'application/json'
 # )
-
-# export = suggestSong(parseInput())
 
 @home_route.route('/test_predict')
 def test_form():
