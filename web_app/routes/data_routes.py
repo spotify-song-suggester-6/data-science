@@ -1,4 +1,4 @@
-"""This module contains the routes that analyze the data"""
+"""This module contains routes to analyze and plot data."""
 # pylint: disable=import-error
 import os
 import psycopg2
