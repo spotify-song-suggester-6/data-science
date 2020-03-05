@@ -25,18 +25,6 @@ def index():
   "avatar": "http://en.wikipedia.org/wiki/File:Ada_lovelace.jpg"
 })
 
-@home_route.route("/plotly")
-def get_song_id():
-    """Receives text from user using an HTML template. Must receive valid song id."""
-
-    return render_template('test_form.html')
-
-@home_route.route('/plotly', methods=['POST'])
-def plot_to_json():
-    music_data = load_from_db()
-    song_name = request.form["text"]
-    return jsfy(music_data, song_name)
-
 @home_route.route("/test_db")
 def check_for_db():
     user=os.getenv("POSTGRES_USER")
