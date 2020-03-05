@@ -1,3 +1,4 @@
+
 .DS_Store
 
 # Byte-compiled / optimized / DLL files
@@ -107,3 +108,7 @@ venv.bak/
 
 # vscode
 .vscode/
+
+exploratory.ipynb
+untitled.ipynb
+
