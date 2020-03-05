@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from flask import Flask, jsonify, request
 from web_app.models import db, migrate
 from web_app.routes.home_routes import home_route
+from web_app.routes.data_routes import data_route
 
 
 load_dotenv()
@@ -41,6 +42,7 @@ def create_app():
     migrate.init_app(app, db)
 
     app.register_blueprint(home_route)
+    app.register_blueprint(data_route)
     return app
 
 
