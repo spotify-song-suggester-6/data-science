@@ -1,13 +1,13 @@
 """This module contains administrative and test routes for the app."""
-#TODO: create another routes file
 # pylint: disable=import-error
-from flask import Blueprint, jsonify, request, render_template
 import os
-from sqlalchemy_utils import database_exists
 import psycopg2
 from dotenv import load_dotenv
+from flask import Blueprint, jsonify, request, render_template
+from sqlalchemy_utils import database_exists
 from web_app.plotting import basic_scatter, jsfy
 from web_app.admin import check_db, load_environment_variables, load_from_db
+
 load_dotenv()
 
 
@@ -51,6 +51,7 @@ def check_for_db():
 
     return("You have successfully connected to PostgreSQL.")
 
+
 @home_route.route("/data_exists")
 def db_check():
     """Checks for an empty database; populates data if empty.
@@ -62,11 +63,6 @@ def db_check():
     check_db()
     return("Query executed successfully. Data should be present.")
 
-# return APP.response_class(
-#            response= json.dumps( export),
-#            status= 200,
-#            mimetype= 'application/json'
-# )
 
 @home_route.route('/test_predict')
 def test_form():

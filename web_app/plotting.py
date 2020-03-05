@@ -16,6 +16,7 @@ def basic_scatter(df):
     """A basic scatter plot. Flask functionality not yet added."""
     plot = px.scatter(df.iloc[:100], x='loudness',
                       y='energy', trendline='ols')
+    # need to convert plot to JSON-transferable object
     return "We need to convert this plot into something"
 
 
